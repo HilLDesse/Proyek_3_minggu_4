@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+    --bs-primary: #6f4e37;
+    --bs-primary-rgb: 111, 78, 55;
+
+    --bs-link-color: #6f4e37;
+    --bs-link-hover-color: #563a29;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #6f4e37;
+    --bs-btn-border-color: #6f4e37;
+
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #563a29;
+    --bs-btn-hover-border-color: #563a29;
+
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #563a29;
+    --bs-btn-active-border-color: #563a29;
+}
+
+.link-toko {
+    color: #6f4e37 !important;
+}
+
+.link-toko:hover {
+    color: #563a29 !important;
+}
