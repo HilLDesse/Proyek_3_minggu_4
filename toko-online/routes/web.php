@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\RoleController;
 
 Route::get('/', [ProductController::class, 'index']);
 
@@ -62,3 +63,11 @@ Route::post('/stateless-cart/add', [CartController::class, 'add'])
 
 Route::post('/stateless-cart/update', [CartController::class, 'update'])
     ->name('stateless.cart.update');
+
+Route::get('/admin/users/roles', [RoleController::class, 'index'])
+    ->middleware(['auth', 'can:manage-roles'])
+    ->name('admin.users.roles.index');
+
+Route::patch('/admin/users/{user}/role', [RoleController::class, 'update'])
+    ->middleware(['auth', 'can:manage-roles'])
+    ->name('admin.users.role.update');
