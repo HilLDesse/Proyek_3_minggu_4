@@ -55,13 +55,17 @@ Route::post('/checkout', [CheckoutController::class, 'process'])
 Route::get('/riwayat', [RiwayatController::class, 'index'])
     ->middleware('auth')
     ->name('riwayat.index');
+    
 Route::get('/stateless-cart', [CartController::class, 'index'])
+    ->middleware(['auth', 'can:use-cart'])
     ->name('stateless.cart.index');
 
 Route::post('/stateless-cart/add', [CartController::class, 'add'])
+    ->middleware(['auth', 'can:use-cart'])
     ->name('stateless.cart.add');
 
 Route::post('/stateless-cart/update', [CartController::class, 'update'])
+    ->middleware(['auth', 'can:use-cart'])
     ->name('stateless.cart.update');
 
 Route::get('/admin/users/roles', [RoleController::class, 'index'])
