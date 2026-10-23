@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\CartController;
 
 Route::get('/', [ProductController::class, 'index']);
 
@@ -53,3 +54,11 @@ Route::post('/checkout', [CheckoutController::class, 'process'])
 Route::get('/riwayat', [RiwayatController::class, 'index'])
     ->middleware('auth')
     ->name('riwayat.index');
+Route::get('/stateless-cart', [CartController::class, 'index'])
+    ->name('stateless.cart.index');
+
+Route::post('/stateless-cart/add', [CartController::class, 'add'])
+    ->name('stateless.cart.add');
+
+Route::post('/stateless-cart/update', [CartController::class, 'update'])
+    ->name('stateless.cart.update');
